@@ -8,10 +8,16 @@ public class Lighthouse {
 		Scanner scanner = new Scanner(System.in);
 		int t = scanner.nextInt();
 		boolean mat[][] = new boolean[t][t];
+		String temp = null;
 		for (int i = 0; i < t; i++) {
-			System.out.println(scanner.nextLine());
+			temp = scanner.nextLine();
+			char a[] = temp.toCharArray();
+			for (int j = 0; j < a.length; j++) {
+				mat[i][j] = a[i] == '*' ? false: true;
+			}
+			// 
      	}
-
+		System.out.println(mat);	
 		scanner.close();
 
 	}
