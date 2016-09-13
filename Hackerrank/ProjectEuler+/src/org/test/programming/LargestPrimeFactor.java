@@ -20,13 +20,16 @@ public class LargestPrimeFactor {
 	
 	private static long largestPrimeFactor(long n){
 		long i=2;
-		/*for(i=2 ; i<=n; i++){
+		//n/=2;
+		for(i=2 ; i<=n; ){
 			if(n%i==0){
 				n/=i;
-				i--;
+				
 			}
-		}*/
-		long max=0;
+			else
+				i++;
+		}
+		/*long max=0;
 		while(n > 1){
 			while(n%i ==0){
 				n = n/i;
@@ -34,7 +37,8 @@ public class LargestPrimeFactor {
 			}
 			i++;
 		}
-		return max;
+		return max;*/
+		return i;
 	}
 
 }
