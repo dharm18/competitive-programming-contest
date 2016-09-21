@@ -28,7 +28,7 @@ public class CircularArrayRotation {
 	}
 	
 	private static void rotate(int a[],int orderToRotate){
-		int offset = (a.length - orderToRotate)%a.length;
+		int offset = a.length - orderToRotate%a.length;
 		if(offset > 0){
 			int copy[] = a.clone();
 			for (int i = 0; i < a.length; i++) {
