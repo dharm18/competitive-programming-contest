@@ -19,15 +19,12 @@ public class AsteriskExpressions {
 		System.out.println(exp);
 		Stack<Character> stack = new Stack<>();
 		char []characters = exp.toCharArray();
-		char a,b;
+		boolean flag = false;
 		for (char c : characters) {
 			if(stack.isEmpty() || !Character.isDigit(c)){
 				stack.push(c);
 			}
 			else{
-				/*while(!stack.isEmpty() && !Character.isDigit(stack.peek())){
-					
-				}*/
 				while(!stack.isEmpty()){
 					stack.pop();
 					if(!stack.isEmpty()){
@@ -42,8 +39,8 @@ public class AsteriskExpressions {
 			System.out.println("Syntax Error");	
 		}
 		else{
-			System.out.println(stack);
 		}
+		System.out.println(stack);
 		
 	}
 
