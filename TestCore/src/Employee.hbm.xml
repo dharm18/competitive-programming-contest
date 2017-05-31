@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.dharam.hibernate.test.domain.Employee" table="EMPLOYEE">
+		<meta attribute="class-description">
+			This class contains the employee detail.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<set name="certificates" cascade="all">
+         <key column="employee_id"/>
+         <!-- <list-index column="idx"/> -->
+         <many-to-many class="com.dharam.hibernate.test.domain.Certificate" column="certificate_id"/>
+      	</set>
+		<property name="firstName" column="first_name" type="string" />
+		<property name="lastName" column="last_name" type="string" />
+		<property name="salary" column="salary" type="int" />
+		<many-to-one name="address" column="address_id" class="com.dharam.hibernate.test.domain.Address" not-null="false" unique="true"/>
+	</class>
+
+	<class name="com.dharam.hibernate.test.domain.Certificate" table="CERTIFICATE">
+		<meta attribute="class-description">
+			This class contains the certificate records.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="name" column="certificate_name" type="string" />
+	</class>
+	
+	<class name="com.dharam.hibernate.test.domain.Address" table="ADDRESS">
+      <meta attribute="class-description">
+         This class contains the address detail. 
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="native"/>
+      </id>
+      <property name="street" column="street_name" type="string"/>
+      <property name="city" column="city_name" type="string"/>
+      <property name="state" column="state_name" type="string"/>
+      <property name="zipcode" column="zipcode" type="string"/>
+   </class>
+	
+	
+</hibernate-mapping>

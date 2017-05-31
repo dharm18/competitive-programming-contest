@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 	<class name="com.dharam.hibernate.test.domain.User" >
+ 		<id name="userId">
+ 			<generator class="native"/>
+ 		</id>
+		<property name="firstName" length="50"/>
+		<property name="lastName" length="50"/>
+		<property name="emailId" not-null="true" unique="false"/>
+		<property name="DOB"/>
+		<property name="DOJ"/>
+		<set name="roles" lazy="true">
+			<key column="userId"/>
+			<one-to-many class="com.dharam.hibernate.test.domain.Role"/>
+		</set>
+		
+ 	</class>
+ </hibernate-mapping>
