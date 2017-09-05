@@ -26,7 +26,7 @@ public class TestUser {
 		User user1 = new User(1L,"abc","xyz","abc1@xyz.com",new Date());
 		User user2 = new User(2L,"pqr","xyz","pqr2@xyz.com",new Date());
 		
-		/*Role role1 = new Role();
+		Role role1 = new Role();
 		role1.setRoleName("ROLE_USER");
 		
 		session.save(role1);
@@ -42,18 +42,21 @@ public class TestUser {
 		
 		roles = new HashSet<Role>();
 		roles.add(role2);
-		user2.setRoles(roles);*/
+		user2.setRoles(roles);
 		
-		/*Transaction transaction = session.beginTransaction();
+		Transaction transaction = session.beginTransaction();
 		
 		System.out.println(session.save(user1));
 		System.out.println(session.save(user2));
 		
-		transaction.commit();*/
+		transaction.commit();
 		
 		
 		/*User users = (User) session.createQuery("from User where userid = ? ").setParameter(0, 2).uniqueResult();
 		System.out.println(users);*/
+		
+		session.close();
+		session = sessionFactory.openSession();
 		
 		User users2 = (User) session.get(User.class,1L);
 		System.out.println(users2);
