@@ -12,7 +12,6 @@ public class AsteriskExpressions {
 		for (int i = 0; i < t; i++) {
 			validExpression(sc.next());
 		}
-		sc.close();
 	}
 	
 	private static void validExpression(String exp){
@@ -20,7 +19,7 @@ public class AsteriskExpressions {
 		System.out.println(exp);
 		Stack<Character> stack = new Stack<>();
 		char []characters = exp.toCharArray();
-		//boolean flag = false;
+		boolean flag = false;
 		for (char c : characters) {
 			if(stack.isEmpty() || !Character.isDigit(c)){
 				stack.push(c);
@@ -44,5 +43,5 @@ public class AsteriskExpressions {
 		System.out.println(stack);
 		
 	}
-}
 
+}
