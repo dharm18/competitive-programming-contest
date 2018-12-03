@@ -19,15 +19,15 @@ public class Quartile {
         }
         sc.close();
         Arrays.sort(a);
-        double q2 = getMedian(a,0,n);
+        double q2 = getMedian(a,0,n-1);
         double q1=0,q3=0;
         if(n%2==0){
             q1 = getMedian(a, 0, (n/2)-1);
-            q3 = getMedian(a, (n / 2)+1, n);
+            q3 = getMedian(a, (n / 2), n-1);
         }
         else{
-            q1 = getMedian(a, 0, (n / 2));
-            q3 = getMedian(a, (n / 2)+1, n);
+            q1 = getMedian(a, 0, (n / 2)-1);
+            q3 = getMedian(a, (n / 2)+1, n-1);
         }    
         System.out.println(new DecimalFormat("#").format(q1));
         System.out.println(new DecimalFormat("#").format(q2));
@@ -36,13 +36,14 @@ public class Quartile {
 
     public static double getMedian(int a[], int low,int high) {
         System.out.println(low + " " + high);
-        int n = (high-low);
+        System.out.println(Arrays.toString(a));
+        int n = (high-low+1);
         double median = 0;
         if(n%2==0){
-             median = (a[low + (n/2)-1] + a[low + n/2])/2;
+           median = (a[low + (n/2)-1] + a[low + n/2])/2.0;
         }
         else
-            median = a[low + n/2];
+           median = a[low + n/2];
 
         return median;
     }
