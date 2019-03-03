@@ -8,22 +8,14 @@ public class NewYearChaos {
     static void minimumBribes(int[] q) {
     	int n = q.length;
     	int countBribes = 0;
-    	int steps = 2;
     	boolean fault=false;
-    	while(n > 1){
-    		if(n == q[n-1]){ //value is same
-    			n--;
-    		}
-    		else if(n != q[n-1] & steps > 0){
-    			countBribes++;
-    			steps--;
-    			n--;
-    			if(steps==0)
-    				steps = 2;
-    		}
-    		else{
+    	for(int i=n-1; i>=0; i--){
+    		if(q[i]-(i+1) > 2){ //value is same
     			fault=true;
-    			break;
+    			break;   			
+    		}
+    		else if(q[i]-(i+1)> 0){
+    			countBribes++;
     		}
     	}
     	
