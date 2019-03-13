@@ -6,43 +6,41 @@ public class NewYearChaos {
 
 	// Complete the minimumBribes function below.
     static void minimumBribes(int[] q) {
-    	int n = q.length;
+    	int n = q.length-1;
     	int countBribes = 0;
-    	boolean fault=false;
-    	for(int i=n-1; i>=0; i--){
+    	for(int i=n; i>=0; i--){
     		if(q[i]-(i+1) > 2){ //value is same
-    			fault=true;
-    			break;   			
+    			System.out.println("Too chaotic");
+    			return;
     		}
-    		else if(q[i]-(i+1)> 0){
-    			countBribes++;
-    		}
+			for(int j= Math.max(0, q[i]-2); j<i; j++){
+				if(q[i] < q[j]){
+					countBribes++;
+				}
+			}
     	}
-    	
-    	if(!fault)
-    		System.out.println(countBribes);
-    	else
-    		System.out.println("Too chaotic");
+    	System.out.println(countBribes);
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         int t = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        //scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         for (int tItr = 0; tItr < t; tItr++) {
             int n = scanner.nextInt();
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+          //  scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
             int[] q = new int[n];
 
-            String[] qItems = scanner.nextLine().split(" ");
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+            //String[] qItems = scanner.nextLine().split(" ");
+            //scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
             for (int i = 0; i < n; i++) {
-                int qItem = Integer.parseInt(qItems[i]);
-                q[i] = qItem;
+                //int qItem = Integer.parseInt(qItems[i]);
+                //q[i] = qItem;
+            	q[i] = scanner.nextInt();
             }
 
             minimumBribes(q);
@@ -50,5 +48,25 @@ public class NewYearChaos {
 
         scanner.close();
     }
-	
 }
+
+/* OUTPUT : 
+ * Input (stdin) 
+2
+8
+5 1 2 3 7 8 6 4
+8
+1 2 5 3 7 8 6 4
+
+Expected Output
+Too chaotic
+7
+
+1
+8
+1 2 5 3 4 7 8 6
+
+Expected Output
+4
+ * 
+ */
