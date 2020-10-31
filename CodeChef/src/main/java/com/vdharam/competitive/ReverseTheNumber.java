@@ -22,7 +22,6 @@ public class ReverseTheNumber {
             num = num*10 ;
             num = input%10 + num;
             input = input/10;
-
         }
         System.out.println(num);
     }
