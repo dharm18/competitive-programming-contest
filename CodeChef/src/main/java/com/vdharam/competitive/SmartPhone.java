@@ -8,7 +8,7 @@ public class SmartPhone {
         try {
             Scanner scanner = new Scanner(System.in);
             int t = scanner.nextInt();
-            long budgets[] = new long[t];
+            long[] budgets = new long[t];
             for (int i = 0; i < t; i++) {
                 budgets[i] = scanner.nextLong();
             }

@@ -6,8 +6,8 @@ import static org.junit.Assert.*;
 
 public class LapindromesTest {
 
-    String testInputs[] = {"aa","gaga","abcde","rotor", "xyzxy", "abbaab", "ababc", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabb" };
-    String testOutputs[] = {"YES","YES","NO","YES", "YES", "NO", "NO", "NO" };
+    final String[] testInputs = {"aa","gaga","abcde","rotor", "xyzxy", "abbaab", "ababc", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabb" };
+    final String[] testOutputs = {"YES","YES","NO","YES", "YES", "NO", "NO", "NO" };
 
     @Test
     public void isLapindromes() {
