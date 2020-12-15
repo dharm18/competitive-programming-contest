@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RestoreSequence {
-    private static int maxN = 4000001;
-    private static boolean prime[] = new boolean[maxN];
+    private static final int maxN = 4000001;
+    private static final boolean[] prime = new boolean[maxN];
     private static ArrayList<Integer> primes;
 
     public static void sieveOfEratosthenes() {
@@ -35,7 +35,7 @@ public class RestoreSequence {
 
             for (int i = 0; i < t; i++) {
                 int n = scanner.nextInt();
-                int b[] = new int[n];
+                int[] b = new int[n];
                 for (int j = 0; j < n; j++) {
                     b[j] = scanner.nextInt();
                 }
@@ -46,7 +46,7 @@ public class RestoreSequence {
         }
     }
 
-    private static void printSolution(int a[], int n) {
+    private static void printSolution(int[] a, int n) {
         for (int i = 0; i < n; i++) {
             if (i == n - 1) {
                 System.out.print(a[i] + "\n");
@@ -55,8 +55,8 @@ public class RestoreSequence {
         }
     }
 
-    public static int[] findAi(int b[], int n) {
-        int a[] = new int[n];
+    public static int[] findAi(int[] b, int n) {
+        int[] a = new int[n];
         int indexB;
         for (int i = 0; i < n; i++) {
             a[i] = primes.get(i);
