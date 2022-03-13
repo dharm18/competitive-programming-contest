@@ -9,11 +9,14 @@ public class FunWithBits {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         sc.close();
+        System.out.println(bitCounts(n));
+    }
+
+    public static long bitCounts(int n) {
         long sum = 0;
         for(int i=1; i<=n; i++) {
             sum += Integer.bitCount(i);
         }
-
-        System.out.println(sum);
+        return sum;
     }
 }
