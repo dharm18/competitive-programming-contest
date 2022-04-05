@@ -75,6 +75,22 @@ public class BST {
     			queue.add(currentNode.right);
     	}
     }
+    
+    public void dfs(Node node) {
+    	if(node == null)
+    		return;
+    	
+    	Stack<Node> stack = new Stack<BST.Node>();
+    	stack.add(node);
+    	
+    	while(!stack.isEmpty()) {
+    		Node currentNode = stack.peek();
+    		if(currentNode.left != null)
+    			stack.push(currentNode.left);
+    		if(currentNode.right != null)
+    			stack.push(currentNode.right);
+    	}
+    }
 
     public static void main(String[] args) {
         BST bst = new BST();
@@ -85,7 +101,7 @@ public class BST {
         bst.insert(170);
         bst.insert(15);
         bst.insert(1);
-        System.out.println("Printing tree");
+        System.out.println("Printing tree via BFS/LOT");
         bst.levelOrder(bst.root);
     }
 }
