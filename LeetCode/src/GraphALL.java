@@ -3,6 +3,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class GraphALL {
 
@@ -34,6 +35,23 @@ public class GraphALL {
 	
 	public void dfs(int startIndex) {
 		
+		boolean visited[] = new boolean[v];
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(startIndex);
+		visited[startIndex] = true;
+		
+		while(!stack.isEmpty()) {
+			int currentVertex = stack.pop();
+			System.out.print(currentVertex + " ");
+			
+			List<Integer> nodes = adjancyList.get(currentVertex);
+			for (Integer vertex : nodes) {
+				if(!visited[vertex]) {
+					visited[vertex] = true;
+					stack.push(vertex);
+				}
+			}
+		}
 	}
 	
 	public void bfs(int startingVertex) {
@@ -72,6 +90,8 @@ public class GraphALL {
         g.addEdge(3, 3);
         
         g.print();
-        g.bfs(2);
+        //g.bfs(2);
+        //System.out.println();
+        g.dfs(2);
 	}
 }
