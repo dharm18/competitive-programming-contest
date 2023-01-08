@@ -2,7 +2,8 @@
 public class IsSubsequence {
 
 	public static void main(String[] args) {
-		System.out.println(new IsSubsequence().isSubsequence("abc", "ahbgdc"));
+		System.out.println((0-1+5)%5);
+		//System.out.println(new IsSubsequence().isSubsequence("abc", "ahbgdc"));
 	}
 
 	public boolean isSubsequence(String s, String t) {
